@@ -4,11 +4,12 @@ import '../styles/Hero.css';
 function Hero() {
   return (
     <section id="hero" className="hero">
-      <div className="hero-content">
-        <h1 className="hero-title">
-          Hi, I'm Akshay.<br />
-          <span className="subtitle-gradient">A software engineer.</span>
-        </h1>
+      <div className="hero-container">
+        <div className="hero-content">
+          <h1 className="hero-title">
+            Hi, I'm Akshay.<br />
+            <span className="subtitle-gradient">A software engineer.</span>
+          </h1>
         {/* <p className="hero-description">
           BCA student {academicStatus.summary} with a passion for building scalable web applications.
           Primarily working in the JavaScript ecosystem with focus on frontend development and backend fundamentals.
@@ -67,9 +68,10 @@ function Hero() {
             </svg>
           </a>
         </div>
-      </div>
-      <div className="hero-visual">
-        <div className="gradient-blob"></div>
+        </div>
+        <div className="hero-visual">
+          <div className="gradient-blob"></div>
+        </div>
       </div>
     </section>
   );

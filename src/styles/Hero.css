@@ -67,21 +67,21 @@
   transition: 0.3s ease;
 }
 
-.primary-btn {
+.btn-primary {
   background: var(--gradient-primary);
   color: var(--bg-darker);
 }
 
-.primary-btn:hover {
+.btn-primary:hover {
   transform: translateY(-3px);
 }
 
-.secondary-btn {
+.btn-secondary {
   border: 1px solid var(--primary-color);
   color: var(--primary-color);
 }
 
-.secondary-btn:hover {
+.btn-secondary:hover {
   background: var(--gradient-primary);
   color: var(--bg-darker);
 }
@@ -117,7 +117,7 @@
   transform: translateY(-5px);
 }
 
-RIGHT VISUAL
+/* RIGHT VISUAL */
 .hero-visual {
   flex: 1;
   max-width: 500px;
