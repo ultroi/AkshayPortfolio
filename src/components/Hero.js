@@ -1,10 +1,7 @@
 import React from 'react';
 import '../styles/Hero.css';
-import { getAcademicStatus } from '../utils/academicStatus';
 
 function Hero() {
-  const academicStatus = getAcademicStatus(2024);
-
   return (
     <section id="hero" className="hero">
       <div className="hero-content">
