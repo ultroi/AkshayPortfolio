@@ -1,0 +1,120 @@
+
+/* About Section Updates */
+.about {
+  background: linear-gradient(180deg, rgba(15, 118, 110, 0.05) 0%, rgba(10, 14, 39, 0) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+
+.about-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-content-center {
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+.about-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.about-text p {
+  margin-bottom: 18px;
+  line-height: 1.8;
+  font-size: 1rem;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-text strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  align-items: center;
+}
+
+.stat-card {
+  background: var(--gradient-card);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border-medium);
+  transition: all 0.35s ease;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 212, 170, 0.15);
+}
+
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 10px;
+}
+
+.stat-card h3 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr; /* Tablet/Small laptop pe stack ho jayega */
+    text-align: center;
+    gap: 50px;
+  }
+  
+  .about-text p {
+    max-width: 100%; /* Text full width lega */
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Stats side-by-side ho jayenge */
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 60px 20px;
+  }
+  
+  .about-container h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .stat-card h3 {
+    font-size: 2.2rem;
+  }
+}
