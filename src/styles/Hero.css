@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 80px 24px;
+  padding: clamp(40px, 8vw, 80px) clamp(16px, 5vw, 24px);
   background: radial-gradient(circle at 10% 20%, rgba(0, 212, 170, 0.03) 0%, transparent 40%),
               radial-gradient(circle at 90% 80%, rgba(15, 118, 110, 0.03) 0%, transparent 40%);
   overflow: hidden;
@@ -15,7 +15,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
-  gap: 40px;
+  gap: clamp(20px, 5vw, 40px);
 }
 
 /* LEFT CONTENT */
@@ -32,7 +32,7 @@
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: clamp(16px, 3vw, 24px);
 }
 
 .name-highlight {
@@ -56,11 +56,11 @@
 }
 
 .hero-description {
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   color: var(--text-secondary, #94a3b8);
   line-height: 1.6;
-  margin: 0 auto 35px;
-  max-width: 500px;
+  margin: 0 auto clamp(24px, 5vw, 35px);
+  max-width: clamp(280px, 90vw, 500px);
   text-align: center;
 }
 
@@ -83,9 +83,9 @@
 }
 
 .btn {
-  padding: 14px 32px;
+  padding: clamp(12px, 2vw, 14px) clamp(24px, 4vw, 32px);
   border-radius: 50px; /* Modern pill shape */
-  font-size: 0.95rem;
+  font-size: clamp(0.85rem, 2vw, 0.95rem);
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -113,22 +113,24 @@
 
 /* SOCIALS */
 .hero-socials {
-  position: absolute;
-  bottom: -40px;
-  right: 120px;
-
   display: flex;
-  gap: 18px;
+  gap: clamp(12px, 3vw, 18px);
+  justify-content: center;
+  margin-top: clamp(20px, 5vw, 40px);
+  flex-wrap: wrap;
 }
 
 .social-icon {
   color: var(--text-secondary, #94a3b8);
   transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .social-icon svg {
-  width: 22px;
-  height: 22px;
+  width: clamp(18px, 4vw, 22px);
+  height: clamp(18px, 4vw, 22px);
 }
 
 .social-icon:hover {
@@ -146,8 +148,8 @@
 
 .gradient-blob {
   position: absolute;
-  width: 350px;
-  height: 350px;
+  width: clamp(200px, 40vw, 350px);
+  height: clamp(200px, 40vw, 350px);
   background: linear-gradient(135deg, #00d4aa 0%, #0f766e 100%);
   border-radius: 50%;
   filter: blur(80px);
@@ -157,19 +159,19 @@
 }
 
 .visual-card {
-  width: 280px;
-  height: 350px;
+  width: clamp(180px, 50vw, 280px);
+  height: clamp(220px, 60vw, 350px);
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  border-radius: clamp(12px, 3vw, 20px);
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: monospace;
   color: #00d4aa;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.5rem);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
@@ -180,10 +182,8 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
-  .hero-socials {
-    position: static;
-    justify-content: center;
-    margin-top: 20px;
+  .hero-container {
+    grid-template-columns: 1fr;
   }
 
   .hero-description {
@@ -191,7 +191,7 @@
     margin-right: auto;
   }
 
-  .hero-buttons, .hero-socials {
+  .hero-buttons {
     justify-content: center;
   }
 }
