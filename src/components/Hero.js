@@ -6,71 +6,45 @@ function Hero() {
     <section id="hero" className="hero">
       <div className="hero-container">
         <div className="hero-content">
+          <p className="hero-pre-title">Welcome to my portfolio</p>
           <h1 className="hero-title">
-            Hi, I'm Akshay.<br />
-            <span className="subtitle-gradient">A software engineer.</span>
+            <span className="typing-text">Hi, I'm <span className="name-highlight">Akshay</span></span><br />
+            <span className="subtitle-gradient">Software Engineer</span>
           </h1>
-        {/* <p className="hero-description">
-          BCA student {academicStatus.summary} with a passion for building scalable web applications.
-          Primarily working in the JavaScript ecosystem with focus on frontend development and backend fundamentals.
-        </p> */}
-        <div className="hero-buttons">
-          <a href="#projects" className="btn btn-primary">View My Work</a>
-          <a href="#contact" className="btn btn-secondary">Get in Touch</a>
+          <p className="hero-description">
+            I build robust applications and digital experiences with a focus on 
+            clean code and user-centric design.
+          </p>
+        
+          <div className="hero-buttons">
+            <a href="#projects" className="btn btn-primary">View My Work</a>
+            <a href="#contact" className="btn btn-secondary">Get in Touch</a>
+          </div>
+
+          
         </div>
-        <div className="hero-socials">
-          <a
-            href="https://github.com/ultroi"
-            title="GitHub"
-            className="social-icon"
-            aria-label="GitHub"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M12 .297C5.37 .297 0 5.67 0 12.29c0 5.29 3.438 9.773 8.205 11.363.6.11.82-.26.82-.58 0-.29-.01-1.04-.016-2.04-3.338.73-4.042-1.61-4.042-1.61-.546-1.39-1.333-1.76-1.333-1.76-1.09-.745.083-.73.083-.73 1.205.086 1.84 1.236 1.84 1.236 1.07 1.83 2.81 1.31 3.495.998.108-.78.42-1.31.762-1.60-2.665-.31-5.466-1.33-5.466-5.93 0-1.31.468-2.38 1.236-3.22-.124-.30-.536-1.52.117-3.17 0 0 1.008-.32 3.3 1.23.96-.27 1.98-.40 3-.405 1.02.006 2.04.138 3 .405 2.28-1.55 3.285-1.23 3.285-1.23.656 1.65.244 2.87.12 3.17.77.84 1.235 1.91 1.235 3.22 0 4.61-2.805 5.62-5.475 5.92.43.37.815 1.10.815 2.22 0 1.61-.014 2.90-.014 3.29 0 .32.21.69.825.58C20.565 22.06 24 17.58 24 12.29c0-6.62-5.373-11.99-12-11.99z" />
-            </svg>
-          </a>
-          <a
-            href="https://linkedin.com"
-            title="LinkedIn"
-            className="social-icon"
-            aria-label="LinkedIn"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M4.98 3.5C4.98 2.12 6.1 1 7.49 1s2.51 1.12 2.51 2.5S8.88 6 7.49 6 4.98 4.88 4.98 3.5zM.5 24h6V8.99h-6V24zm8.49-15.01h5.25v2.08h.08c.73-1.37 2.51-2.82 5.16-2.82 5.37 0 6.01 4.85 6.01 10.33V24h-6.01v-5.82c0-1.39 0-3.18-1.94-3.18-1.94 0-2.24 1.52-2.24 3.09V24h-6V8.99z" />
-            </svg>
-          </a>
-          <a
-            href="https://instagram.com/a_kshay904"
-            title="Instagram"
-            className="social-icon"
-            aria-label="Instagram"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5ZM12 7.25a4.75 4.75 0 1 1 0 9.5 4.75 4.75 0 0 1 0-9.5Zm0 1.5a3.25 3.25 0 1 0 0 6.5 3.25 3.25 0 0 0 0-6.5ZM17.75 6.25a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
-            </svg>
-          </a>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=akshaysingh19040@gmail.com"
-            title="Email"
-            className="social-icon"
-            aria-label="Email"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path fill="currentColor" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-            </svg>
-          </a>
-        </div>
-        </div>
+
         <div className="hero-visual">
           <div className="gradient-blob"></div>
+          {/* Aap yahan apni photo ya code block image daal sakte hain */}
+          <div className="visual-card">
+             <code>&lt;code /&gt;</code>
+          </div>
+          <div className="hero-socials">
+            {/* Social Icons - Clean & Minimal */}
+            <a href="https://github.com/ultroi" className="social-icon" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+            </a>
+            <a href="https://linkedin.com" className="social-icon" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            </a>
+            <a href="https://instagram.com/a_kshay904" className="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:akshaysingh19040@gmail.com" className="social-icon" aria-label="Email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c1.1 0-2 .9-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
         </div>
       </div>
     </section>
