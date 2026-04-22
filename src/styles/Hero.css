@@ -116,8 +116,8 @@
   display: flex;
   gap: clamp(12px, 3vw, 18px);
   justify-content: center;
-  margin-top: clamp(20px, 5vw, 40px);
   flex-wrap: wrap;
+  margin-top: clamp(20px, 5vw, 40px);
 }
 
 .social-icon {
@@ -141,9 +141,11 @@
 /* RIGHT VISUAL */
 .hero-visual {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
+  gap: clamp(20px, 4vw, 30px);
 }
 
 .gradient-blob {
@@ -173,6 +175,7 @@
   color: #00d4aa;
   font-size: clamp(1rem, 3vw, 1.5rem);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  transform: translateY(29px);
 }
 
 @keyframes pulse {
