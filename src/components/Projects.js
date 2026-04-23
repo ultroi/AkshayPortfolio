@@ -19,22 +19,6 @@ function Projects() {
       repository: 'https://github.com',
       liveDemo: 'https://demo.example.com'
     },
-    {
-      id: 2,
-      title: 'E-Commerce Platform',
-      description: 'Full-stack e-commerce solution with payment integration and inventory management',
-      videoUrl: '', // Add your video URL here later
-      repository: 'https://github.com',
-      liveDemo: 'https://demo.example.com'
-    },
-    {
-      id: 3,
-      title: 'Analytics Dashboard',
-      description: 'Real-time data visualization dashboard with interactive charts and reports',
-      videoUrl: '', // Add your video URL here later
-      repository: 'https://github.com',
-      liveDemo: 'https://demo.example.com'
-    }
   ];
 
   const handleTouchStart = (e) => {
@@ -74,14 +58,10 @@ function Projects() {
     }
   };
 
-  // Mouse wheel horizontal scroll
+  // Mouse wheel disabled for the carousel; drag only
   const handleMouseWheel = (e) => {
-    if (carouselRef.current && (e.deltaY !== 0)) {
+    if (carouselRef.current && (e.deltaY !== 0 || e.deltaX !== 0)) {
       e.preventDefault();
-      carouselRef.current.scrollBy({
-        left: e.deltaY * 1.5,
-        behavior: 'smooth'
-      });
     }
   };
 

@@ -12,10 +12,33 @@ function Navbar() {
     setMenuOpen(false);
   };
 
+  const handleLogoClick = () => {
+    const heroSection = document.getElementById('hero');
+    if (heroSection) {
+      heroSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleLogoDoubleClick = () => {
+    window.location.reload();
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <div className="navbar-logo">
+        <div
+          className="navbar-logo"
+          role="button"
+          tabIndex={0}
+          onClick={handleLogoClick}
+          onDoubleClick={handleLogoDoubleClick}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              handleLogoClick();
+            }
+          }}
+        >
           <span className="logo-icon">💻</span>
           <span>Akshay Singh</span>
         </div>

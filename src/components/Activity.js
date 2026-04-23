@@ -56,6 +56,49 @@ const ActivityContent = ({
     [selectedYear, contributions]
   );
 
+  const [tooltip, setTooltip] = useState({
+    visible: false,
+    x: 0,
+    y: 0,
+    data: null
+  });
+
+  const handleCellLeave = useCallback(() => {
+    setTooltip(prev => ({ ...prev, visible: false }));
+  }, []);
+
+  const handleCellHover = useCallback((event, item) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+
+    const tooltipWidth = 140;  // approx width
+    const tooltipHeight = 50;  // approx height
+
+    let x = rect.left + rect.width / 2;
+    let y = rect.top - tooltipHeight - 8;
+
+    // LEFT EDGE FIX
+    if (x - tooltipWidth / 2 < 8) {
+      x = tooltipWidth / 2 + 8;
+    }
+
+    // RIGHT EDGE FIX
+    if (x + tooltipWidth / 2 > window.innerWidth - 8) {
+      x = window.innerWidth - tooltipWidth / 2 - 8;
+    }
+
+    // TOP EDGE FIX → flip below
+    if (y < 8) {
+      y = rect.bottom + 8;
+    }
+
+    setTooltip({
+      visible: true,
+      x,
+      y,
+      data: item
+    });
+  }, []);
+
   const contributionCount = useMemo(
     () => contributions.reduce((sum, item) => sum + (item.count || 0), 0),
     [contributions]
@@ -189,21 +232,34 @@ const ActivityContent = ({
           ) : (
             <>
               <div className="heatmap-grid" style={{ '--heatmap-cell-size': heatmapCellSize }}>
-                {filteredContributions.map((item, idx) => (
+                {filteredContributions.map((item) => (
                   <div
                     key={item.date}
-                    className={`heatmap-cell level-${item.level} animated`}
-                    style={{ '--cell-color': getLevelColor(item.level), animationDelay: `${idx * 0.002}s` }}
+                    className={`heatmap-cell level-${item.level}`}
+                    style={{ '--cell-color': getLevelColor(item.level) }}
                     data-count={item.count}
                     data-date={item.date}
-                  >
-                    <div className="cell-tooltip">
-                      <strong>{item.date}</strong>
-                      <span>{item.count} contribution{item.count !== 1 ? 's' : ''}</span>
-                    </div>
-                  </div>
+                    onMouseEnter={(e) => handleCellHover(e, item)}
+                    onMouseMove={(e) => handleCellHover(e, item)}
+                    onMouseLeave={handleCellLeave}
+                  />
                 ))}
               </div>
+
+              {tooltip.visible && tooltip.data && (
+                <div
+                  className="cell-tooltip"
+                  style={{
+                    position: 'fixed',
+                    top: tooltip.y,
+                    left: tooltip.x,
+                    zIndex: 9999
+                  }}
+                >
+                  <strong>{tooltip.data.date}</strong>
+                  <span>{tooltip.data.count} contribution{tooltip.data.count !== 1 ? 's' : ''}</span>
+                </div>
+              )}
             </>
           )}
         </div>
@@ -427,17 +483,19 @@ function Activity() {
     const yearKeys = Object.keys(totals);
     if (yearKeys.length === 0) return;
 
-    const currentYear = new Date().getFullYear().toString();
-    if (yearKeys.includes(currentYear)) {
-      setSelectedYear(currentYear);
-    } else if (!yearKeys.includes(selectedYear)) {
-      setSelectedYear(yearKeys[0]);
+    if (selectedYear !== 'all' && !yearKeys.includes(selectedYear)) {
+      const currentYear = new Date().getFullYear().toString();
+      if (yearKeys.includes(currentYear)) {
+        setSelectedYear(currentYear);
+      } else {
+        setSelectedYear(yearKeys[0]);
+      }
     }
   }, [totals, selectedYear]);
 
   const handleYearChange = useCallback((year) => {
     setSelectedYear(year);
-  }, []);
+  }, [setSelectedYear]);
 
   // ✅ Show placeholder while data loads (don't block page render)
   if (!isVisible) {
