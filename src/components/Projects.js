@@ -1,8 +1,8 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
+import React, { useRef, useEffect, useCallback, useState } from 'react';
 import '../styles/Projects.css';
+import auraThumbnail from '../assets/aura-thumbnail.png';
 
 function Projects() {
-  const [hoveredCard, setHoveredCard] = useState(null);
   const [touchStart, setTouchStart] = useState(null);
   const [touchEnd, setTouchEnd] = useState(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -13,8 +13,10 @@ function Projects() {
   const projects = [
     {
       id: 1,
-      title: 'AI Chat Assistant',
-      description: 'Context-aware AI with natural language understanding and real-time processing',
+      title: 'Aura AI',
+      tag: 'Fake News Detector',
+      description: 'Built an AI-powered chatbot that detects and flags fake news in real-time using NLP and classification models. Designed a clean, responsive UI with secure authentication (Google OAuth + email login) and scalable backend architecture. Focused on fast response time, accuracy, and user trust.',
+      thumbnail: auraThumbnail,
       videoUrl: '', // Add your video URL here later
       repository: 'https://github.com',
       liveDemo: 'https://demo.example.com'
@@ -83,6 +85,11 @@ function Projects() {
     setIsMouseDown(false);
   }, []);
 
+  const handleUnderDevelopmentClick = (e) => {
+    e.preventDefault();
+    alert('Under Development phase me hai');
+  };
+
   // Keyboard arrow keys navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -144,18 +151,23 @@ function Projects() {
           {projects.map((project) => (
             <div
               key={project.id}
-              className={`project-card ${hoveredCard === project.id ? 'hovered' : ''}`}
-              onMouseEnter={() => setHoveredCard(project.id)}
-              onMouseLeave={() => setHoveredCard(null)}
+              className="project-card"
             >
-              {/* Video Preview */}
+              {/* Project Thumbnail */}
               <div className="project-video-container">
+                <div className="project-status-tag">Development</div>
                 {project.videoUrl ? (
                   <video 
                     src={project.videoUrl} 
                     controls 
                     className="project-video"
                     poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%230a0e27' width='400' height='300'/%3E%3Ccircle cx='200' cy='150' r='40' fill='%2300d4aa' opacity='0.3'/%3E%3C/svg%3E"
+                  />
+                ) : project.thumbnail ? (
+                  <img
+                    src={project.thumbnail}
+                    alt={`${project.title} thumbnail`}
+                    className="project-thumbnail"
                   />
                 ) : (
                   <div className="video-placeholder">
@@ -170,7 +182,10 @@ function Projects() {
 
               {/* Project Info */}
               <div className="project-info">
-                <h3 className="project-title">{project.title}</h3>
+                <h3 className="project-title">
+                  {project.title}
+                  <span className="project-tag">{project.tag}</span>
+                </h3>
                 <p className="project-description">{project.description}</p>
               </div>
 
@@ -178,6 +193,7 @@ function Projects() {
               <div className="project-buttons">
                 <a 
                   href={project.liveDemo}
+                  onClick={handleUnderDevelopmentClick}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-primary"
@@ -189,6 +205,7 @@ function Projects() {
                 </a>
                 <a
                   href={project.repository}
+                  onClick={handleUnderDevelopmentClick}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-secondary"
